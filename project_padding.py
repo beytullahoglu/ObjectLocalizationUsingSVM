@@ -26,13 +26,10 @@ def imgPadding( image ):
             zr2 = np.zeros([diff-int(diff/2),colSize, 3], dtype = int)
             image = np.concatenate((zr,image), axis = 0)
             image = np.concatenate((image,zr2), axis = 0)
-
-        imageio.imwrite('outfile.jpg', image)
+        
         image = np.float32(image)
         image = np.resize(image, (224, 224, 3))
-
-        image2 = Image.open("outfile.jpg").convert("RGB")
         image2 = image2.resize((224,224))
         image2 = np.asarray(image2)
 
-        imageio.imwrite("padded_images/" + img_directory + "/" + image_path , image2)
+        return image2
