@@ -11,8 +11,7 @@ import torchvision
 import math
 import pickle
 
-def vectorExtractor( image_path ):
-    image = Image.open().convert("RGB") # load an image
+def vectorExtractor( image ):
     image = np.asarray(image) # convert to a numpy array
     image = np.reshape(image, [1, 224, 224, 3])
     # model takes as input images of size [batch_size, 3, im_height, im_width]
