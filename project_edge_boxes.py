@@ -5,7 +5,7 @@ import os
 import pickle
 import yaml
 
-def edge_box( file_name ):
+def edge_box( file_name, number_of_boxes ):
     im = cv.imread( file_name )
     rgb_im = cv.cvtColor(im, cv.COLOR_BGR2RGB)
     edges = edge_detection1.detectEdges(np.float32(rgb_im) / 255.0)
@@ -14,7 +14,7 @@ def edge_box( file_name ):
     edges = edge_detection1.edgesNms(edges, orimap)
 
     edge_boxes = cv.ximgproc.createEdgeBoxes()
-    edge_boxes.setMaxBoxes(50)
+    edge_boxes.setMaxBoxes(number_of_boxes)
     boxes = edge_boxes.getBoundingBoxes(edges, orimap)
 
     return boxes, edges
