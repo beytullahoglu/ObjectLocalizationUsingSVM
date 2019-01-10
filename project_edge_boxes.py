@@ -1,9 +1,5 @@
 import cv2 as cv
 import numpy as np
-import sys
-import os
-import pickle
-import yaml
 
 def edge_box( file_name, number_of_boxes ):
     im = cv.imread( file_name )
