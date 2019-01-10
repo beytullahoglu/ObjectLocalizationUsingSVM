@@ -1,12 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
-'''
-This sample demonstrates structured edge detection and edgeboxes.
-Usage:
-  edgeboxes_demo.py [<model>] [<input_image>]
-'''
-
 import cv2 as cv
 import numpy as np
 import sys
@@ -38,12 +29,6 @@ def edge_box( file_name ):
     cv.waitKey(0)
     #cv.destroyAllWindows()
 
-image_name = "padded_test_images/74.JPEG"
-edge_box( image_name )
 
-#for image_path in os.listdir("padded_test_images/"):
-#    if image_path[0] == '.' : # extracting hided files that start with '.'
-#        continue
-#    image_name =  "padded_test_images/" + image_path
-#    edge_box( image_name )
+
 
