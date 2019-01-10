@@ -5,9 +5,6 @@ import os
 import pickle
 import yaml
 
-modelname = "models/model.yml"
-edge_detection1 = cv.ximgproc.createStructuredEdgeDetection( modelname )
-
 def edge_box( file_name ):
     im = cv.imread( file_name )
     rgb_im = cv.cvtColor(im, cv.COLOR_BGR2RGB)
@@ -21,6 +18,24 @@ def edge_box( file_name ):
     boxes = edge_boxes.getBoundingBoxes(edges, orimap)
 
     return boxes, edges
+
+def window_extractor(image, boxes):
+    parts = []
+    for window in boxes:
+        a, b, c, d = window
+        parts.append(image[b: b + d, a: a + c])
+    
+    return parts
+
+def plot_windows(image, boxes, edges):
+    a, b, c, d = box
+        cv2.rectangle(image, (a, b), (a + c, b + d), (0, 255, 0), 1, cv2.LINE_AA)
+
+    cv2.imshow("edges", edges)
+    cv2.imshow("edgeboxes", image)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    
 
 
 
