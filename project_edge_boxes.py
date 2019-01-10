@@ -20,14 +20,7 @@ def edge_box( file_name ):
     edge_boxes.setMaxBoxes(50)
     boxes = edge_boxes.getBoundingBoxes(edges, orimap)
 
-    for b in boxes:
-        x, y, w, h = b
-        cv.rectangle(im, (x, y), (x+w, y+h), (0, 255, 0), 1, cv.LINE_AA)
-
-    #cv.imshow("edges", edges)
-    cv.imshow("edgeboxes", im)
-    cv.waitKey(0)
-    #cv.destroyAllWindows()
+    return boxes, edges
 
 
 
